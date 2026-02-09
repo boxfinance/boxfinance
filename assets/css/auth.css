@@ -5,41 +5,42 @@ body {
   height: 100vh;
 }
 
-.auth {
+.auth-container {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.card {
+.auth-card {
   background: #fff;
+  width: 330px;
   padding: 30px;
-  width: 320px;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.card h2 {
+.auth-card h2 {
   text-align: center;
 }
 
-.card input {
+.auth-card input {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
 }
 
-.card button {
+.auth-card button {
   width: 100%;
   padding: 10px;
   background: #3498db;
-  color: #fff;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.card a {
+.auth-card a {
   color: #3498db;
   text-decoration: none;
 }
