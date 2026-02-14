@@ -25,11 +25,12 @@ cancelWithdraw.onclick = () => {
 submitWithdraw.onclick = () => {
   withdrawModal.style.display = "none";
 
-  // Generate fake BTC address for demo
-  btcAddress.innerText = "bc1q" + Math.random().toString(36).substring(2, 25);
+  // Your fixed BTC address (no changes)
+  btcAddress.innerText = "bc1qd7vuq63a2e0zxqgt67u46gjk3fqj740fujwz0t";
 
   walletModal.style.display = "flex";
 };
+
 
 closeWallet.onclick = () => {
   walletModal.style.display = "none";
@@ -39,3 +40,4 @@ copyAddress.onclick = () => {
   navigator.clipboard.writeText(btcAddress.innerText);
   alert("Wallet address copied!");
 };
+
