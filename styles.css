@@ -1,0 +1,205 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.frame {
+  width: 400px;
+}
+
+header {
+  text-align: center;
+}
+
+.welcome {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cards {
+  display: flex;
+  gap: 10px;
+}
+
+.card {
+  flex: 1;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.value.green { color: green; }
+.value.blue { color: blue; }
+
+.total-card {
+  background: white;
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.withdraw-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.portfolio {
+  background: white;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+.chart-placeholder {
+  height: 120px;
+  background: #e6f4ea;
+  border-radius: 8px;
+}
+
+.tiles {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tile {
+  flex: 1;
+  padding: 10px;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.tile.green { background: #1fa34a; }
+.tile.blue { background: #2b7be3; }
+.tile.dark { background: #1167a1; }
+
+/* Modal */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  width: 350px;
+  border-radius: 10px;
+}
+
+.field {
+  margin: 10px 0;
+}
+
+.field input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn {
+  padding: 8px 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: blue;
+  color: white;
+}
+
+.btn.ghost {
+  background: lightgray;
+}
+
+.wallet-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eef5ff;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.congrats {
+  margin-top: 15px;
+  font-weight: bold;
+  color: green;
+}
+
+/* AUTH PAGES */
+
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f7fa;
+}
+
+.auth-card {
+  background: white;
+  padding: 30px;
+  width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.auth-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.full {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.switch-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.switch-text a {
+  color: #2b7be3;
+  text-decoration: none;
+  font-weight: bold;
+}

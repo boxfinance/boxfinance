@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Investment Account</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="frame">
+
+  <header>
+    <h1>Investment Account</h1>
+  </header>
+
+  <div class="welcome">
+    <div class="avatar">
+      <img src="jp.jpeg" alt="User Avatar">
+    </div>
+    <div>
+      <p class="hello">Welcome,</p>
+      <p class="name">Jong Parkt</p>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="title">Invested Capital</div>
+      <div class="value green">$350</div>
+    </div>
+
+    <div class="card">
+      <div class="title">Accumulated Profits</div>
+      <div class="value blue">$7,122.15</div>
+    </div>
+  </div>
+
+  <div class="total-card">
+    <div class="label">Total Account Value</div>
+    <div class="big">$7,472.15</div>
+    <div class="pct">+ 2,034.9% ▲</div>
+
+    <!-- Withdrawal Button -->
+    <button class="withdraw-btn" id="openWithdraw">Withdrawal</button>
+  </div>
+
+  <div class="portfolio">
+    <h3>Portfolio Overview</h3>
+    <div class="chart-placeholder"></div>
+
+    <div class="tiles">
+      <div class="tile green">Stocks<br>$1,520</div>
+      <div class="tile blue">Real Estate<br>$2,700</div>
+      <div class="tile dark">Crypto<br>$3,300</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Withdrawal Modal -->
+<div class="modal-backdrop" id="withdrawModal">
+  <div class="modal">
+    <h4>Make a Withdrawal</h4>
+
+    <div class="field">
+      <label>Enter your CashApp tag</label>
+      <input type="text" id="cashTag" placeholder="$yourtag">
+    </div>
+
+    <div class="field">
+      <label>Enter the amount</label>
+      <input type="number" id="amount" placeholder="Amount">
+    </div>
+
+    <div class="actions">
+      <button class="btn ghost" id="cancelWithdraw">Cancel</button>
+      <button class="btn primary" id="submitWithdraw">Withdrawal</button>
+    </div>
+  </div>
+</div>
+
+<!-- Wallet Popup -->
+<div class="modal-backdrop" id="walletModal">
+  <div class="modal">
+    <h4>Withdrawal Complete</h4>
+
+    <div class="wallet-box">
+      <div>
+        <div class="wallet-address" id="btcAddress">
+          bc1qexamplewalletaddress000000000000
+        </div>
+      </div>
+      <button class="btn primary" id="copyAddress">Copy</button>
+    </div>
+
+    <p class="congrats">Congratulations on your first withdrawal</p>
+
+    <div class="actions">
+      <button class="btn ghost" id="closeWallet">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
