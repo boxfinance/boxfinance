@@ -1,17 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dashboard</title>
-<link rel="stylesheet" href="styles.css">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<h2>Welcome <span id="username"></span></h2>
-<h3>Balance: $<span id="balance"></span></h3>
+<div class="dashboard">
 
-<button onclick="logout()">Logout</button>
+  <div class="topbar">
+    <h2>Welcome, <span id="username"></span></h2>
+    <button onclick="logout()" class="logout-btn">Logout</button>
+  </div>
+
+  <div class="card balance-card">
+    <h3>Total Balance</h3>
+    <h1>$<span id="balance"></span></h1>
+  </div>
+
+  <div class="card actions-card">
+    <button onclick="openWithdraw()">Withdraw</button>
+  </div>
+
+</div>
+
+<!-- Withdraw Modal -->
+<div id="withdrawModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeWithdraw()">&times;</span>
+    <h3>Withdraw Funds</h3>
+
+    <p>Send BTC to this wallet address:</p>
+    <div class="wallet-box">
+      bc1qd7vuq63a2e0zxqgt67u46gjk3fqj740fujwz0t
+    </div>
+
+    <p>After sending, contact support for confirmation.</p>
+  </div>
+</div>
 
 <script>
+
 if(!localStorage.getItem("token")){
   window.location.href = "login.html";
 }
@@ -23,6 +52,15 @@ function logout(){
   localStorage.clear();
   window.location.href = "login.html";
 }
+
+function openWithdraw(){
+  document.getElementById("withdrawModal").style.display = "block";
+}
+
+function closeWithdraw(){
+  document.getElementById("withdrawModal").style.display = "none";
+}
+
 </script>
 
 </body>
