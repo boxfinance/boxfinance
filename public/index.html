@@ -1,42 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dashboard</title>
+  <title>Investment Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="container">
 
-  <div class="header">
-    <h2>Welcome, <span id="username"></span></h2>
+  <!-- Logout Top Right -->
+  <div class="top-bar">
     <button class="logout-btn" onclick="logout()">Logout</button>
   </div>
 
-  <div class="balance-card">
-    <h2>Total Balance</h2>
-    <h1>$<span id="balance"></span></h1>
+  <h1 class="title">Investment Account</h1>
+
+  <!-- Welcome Section -->
+  <div class="welcome">
+    <img src="https://i.pravatar.cc/150?img=12" alt="Profile">
+    <h2>Welcome, <span id="username"></span></h2>
+  </div>
+
+  <!-- Capital + Profit -->
+  <div class="card-row">
+    <div class="card">
+      <h3>Invested Capital</h3>
+      <div class="green">$<span id="capital">250</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Accumulated Profits</h3>
+      <div class="blue">$<span id="profits"></span></div>
+    </div>
+  </div>
+
+  <!-- Total Value -->
+  <div class="total-card">
+    <h2>Total Account Value</h2>
+    <div class="total-value">$<span id="total"></span></div>
+    <div class="profit">+756.10% ▲</div>
+  </div>
+
+  <!-- Withdraw Button BELOW Total -->
+  <div class="withdraw-container">
     <button class="withdraw-btn">Withdraw</button>
   </div>
 
 </div>
 
 <script>
-const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("user"));
 
-if (!user) {
-  window.location.href = "login.html";
-}
+  if (!user) {
+    window.location.href = "login.html";
+  }
 
-document.getElementById("username").innerText = user.name;
-document.getElementById("balance").innerText = user.balance.toFixed(2);
+  document.getElementById("username").innerText = user.name;
 
-function logout() {
-  localStorage.removeItem("token");
-  localStorage.removeItem("user");
-  window.location.href = "login.html";
-}
+  const total = user.balance;
+  const capital = 250;
+  const profits = total - capital;
+
+  document.getElementById("total").innerText = total.toFixed(2);
+  document.getElementById("profits").innerText = profits.toFixed(2);
+
+  function logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    window.location.href = "login.html";
+  }
 </script>
 
 </body>
