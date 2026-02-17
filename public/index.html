@@ -2,65 +2,41 @@
 <html>
 <head>
   <title>Dashboard</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="dashboard">
+<div class="container">
 
-  <div class="topbar">
+  <div class="header">
     <h2>Welcome, <span id="username"></span></h2>
-    <button onclick="logout()" class="logout-btn">Logout</button>
+    <button class="logout-btn" onclick="logout()">Logout</button>
   </div>
 
-  <div class="card balance-card">
-    <h3>Total Balance</h3>
+  <div class="balance-card">
+    <h2>Total Balance</h2>
     <h1>$<span id="balance"></span></h1>
+    <button class="withdraw-btn">Withdraw</button>
   </div>
 
-  <div class="card actions-card">
-    <button onclick="openWithdraw()">Withdraw</button>
-  </div>
-
-</div>
-
-<!-- Withdraw Modal -->
-<div id="withdrawModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeWithdraw()">&times;</span>
-    <h3>Withdraw Funds</h3>
-
-    <p>Send BTC to this wallet address:</p>
-    <div class="wallet-box">
-      bc1qd7vuq63a2e0zxqgt67u46gjk3fqj740fujwz0t
-    </div>
-
-    <p>After sending, contact support for confirmation.</p>
-  </div>
 </div>
 
 <script>
+const user = JSON.parse(localStorage.getItem("user"));
 
-if(!localStorage.getItem("token")){
+if (!user) {
   window.location.href = "login.html";
 }
 
-document.getElementById("username").innerText = localStorage.getItem("name");
-document.getElementById("balance").innerText = localStorage.getItem("balance");
+document.getElementById("username").innerText = user.name;
+document.getElementById("balance").innerText = user.balance.toFixed(2);
 
-function logout(){
-  localStorage.clear();
+function logout() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
   window.location.href = "login.html";
 }
-
-function openWithdraw(){
-  document.getElementById("withdrawModal").style.display = "block";
-}
-
-function closeWithdraw(){
-  document.getElementById("withdrawModal").style.display = "none";
-}
-
 </script>
 
 </body>
