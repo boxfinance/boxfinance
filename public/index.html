@@ -1,49 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Investment Dashboard</title>
+  <title>Investment Account</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="public/style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<div class="container">
+<!-- HEADER -->
+<div class="header">
+  <h2>Investment Account</h2>
+  <button class="logout-btn" onclick="logout()">Logout</button>
+</div>
 
-  <!-- Logout Top Right -->
-  <div class="top-bar">
-    <button class="logout-btn" onclick="logout()">Logout</button>
-  </div>
+<div class="dashboard">
 
-  <h1 class="title">Investment Account</h1>
-
-  <!-- Welcome Section -->
+  <!-- Welcome -->
   <div class="welcome">
     <img src="https://i.pravatar.cc/150?img=12" alt="Profile">
-    <h2>Welcome, <span id="username"></span></h2>
+    <h3>Welcome, <span id="username"></span></h3>
   </div>
 
-  <!-- Capital + Profit -->
+  <!-- Capital & Profit -->
   <div class="card-row">
     <div class="card">
       <h3>Invested Capital</h3>
-      <div class="green">$<span id="capital">250</span></div>
+      <div class="card-value">$250</div>
     </div>
 
     <div class="card">
       <h3>Accumulated Profits</h3>
-      <div class="blue">$<span id="profits"></span></div>
+      <div class="card-value blue" id="profits"></div>
     </div>
   </div>
 
   <!-- Total Value -->
   <div class="total-card">
     <h2>Total Account Value</h2>
-    <div class="total-value">$<span id="total"></span></div>
+    <div class="total-value" id="total"></div>
     <div class="profit">+756.10% ▲</div>
   </div>
 
-  <!-- Withdraw Button BELOW Total -->
+  <!-- Withdraw BELOW total -->
   <div class="withdraw-container">
     <button class="withdraw-btn">Withdraw</button>
   </div>
@@ -51,28 +50,26 @@
 </div>
 
 <script>
-  const user = JSON.parse(localStorage.getItem("user"));
+  const name = localStorage.getItem("name");
+  const balance = parseFloat(localStorage.getItem("balance"));
 
-  if (!user) {
+  if (!name) {
     window.location.href = "login.html";
   }
 
-  document.getElementById("username").innerText = user.name;
+  document.getElementById("username").innerText = name;
 
-  const total = user.balance;
   const capital = 250;
-  const profits = total - capital;
+  const profits = balance - capital;
 
-  document.getElementById("total").innerText = total.toFixed(2);
-  document.getElementById("profits").innerText = profits.toFixed(2);
+  document.getElementById("total").innerText = "$" + balance.toFixed(2);
+  document.getElementById("profits").innerText = "$" + profits.toFixed(2);
 
   function logout() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
+    localStorage.clear();
     window.location.href = "login.html";
   }
 </script>
 
 </body>
 </html>
-
