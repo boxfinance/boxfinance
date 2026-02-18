@@ -1,96 +1,153 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
-  background: #0f172a;
+}
+
+body {
+  background: #f2f4f7;
+  color: #1f2937;
+}
+
+/* ===== TOP HEADER ===== */
+.header {
+  background: linear-gradient(to right, #1e3a8a, #2563eb);
   color: white;
+  padding: 18px;
+  text-align: center;
+  position: relative;
 }
 
+.logout-btn {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background: #dc2626;
+  border: none;
+  padding: 8px 15px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ===== CONTAINER ===== */
 .dashboard {
-  padding: 40px;
-  max-width: 800px;
+  max-width: 700px;
   margin: auto;
+  padding: 20px;
 }
 
-.topbar {
+/* ===== WELCOME SECTION ===== */
+.welcome {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 15px;
+  margin: 20px 0;
 }
 
-.balance-card {
-  background: #1e293b;
-  padding: 30px;
-  border-radius: 12px;
-  margin-top: 30px;
+.welcome img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+/* ===== CARDS ===== */
+.card-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.card {
+  flex: 1;
+  min-width: 250px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
   text-align: center;
 }
 
-.balance-card h1 {
-  font-size: 40px;
-  margin-top: 10px;
-  color: #22c55e;
+.card h3 {
+  font-weight: normal;
+  margin-bottom: 10px;
+  color: #6b7280;
 }
 
-.actions-card {
-  margin-top: 30px;
+.card-value {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.green {
+  color: #16a34a;
+}
+
+.blue {
+  color: #2563eb;
+}
+
+/* ===== TOTAL VALUE ===== */
+.total-card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
   text-align: center;
+  margin-bottom: 15px;
 }
 
-button {
-  padding: 12px 25px;
+.total-card h2 {
+  font-weight: normal;
+  margin-bottom: 10px;
+  color: #6b7280;
+}
+
+.total-value {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.profit {
+  color: #16a34a;
+  font-weight: bold;
+}
+
+/* ===== WITHDRAW BUTTON ===== */
+.withdraw-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.withdraw-btn {
   background: #2563eb;
   border: none;
-  border-radius: 8px;
+  padding: 12px 30px;
   color: white;
+  border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
 }
 
-button:hover {
+.withdraw-btn:hover {
   background: #1d4ed8;
 }
 
-.logout-btn {
-  background: #dc2626;
-}
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .welcome {
+    flex-direction: column;
+    text-align: center;
+  }
 
-.logout-btn:hover {
-  background: #b91c1c;
-}
+  .card-row {
+    flex-direction: column;
+  }
 
-/* Modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.7);
-}
-
-.modal-content {
-  background: #1e293b;
-  margin: 15% auto;
-  padding: 30px;
-  width: 90%;
-  max-width: 400px;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.wallet-box {
-  background: #0f172a;
-  padding: 15px;
-  border-radius: 8px;
-  word-break: break-all;
-  margin: 15px 0;
-  color: #22c55e;
-}
-
-.close {
-  float: right;
-  font-size: 22px;
-  cursor: pointer;
+  .total-value {
+    font-size: 28px;
+  }
 }
