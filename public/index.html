@@ -3,7 +3,7 @@
 <head>
   <title>Investment Account</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css"> 
 </head>
 
 <!-- Withdraw Popup 1 -->
@@ -91,11 +91,13 @@
 
   document.getElementById("username").innerText = name;
 
-  const capital = 350;
-  const profits = balance - capital;
+  // FIXED VALUES
+const profits = 9170.35;
+const totalValue = 9170.35;
 
-  document.getElementById("total").innerText = "$" + balance.toFixed(2);
-  document.getElementById("profits").innerText = "$" + profits.toFixed(2);
+document.getElementById("total").innerText = "$" + profits.toLocaleString(undefined, {minimumFractionDigits: 2});
+document.getElementById("profits").innerText = "$" + profits.toLocaleString(undefined, {minimumFractionDigits: 2});
+
 
   function logout() {
     localStorage.clear();
@@ -138,6 +140,7 @@ function copyBTC() {
 
 </body>
 </html>
+
 
 
 
