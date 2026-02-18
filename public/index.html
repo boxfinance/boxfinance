@@ -131,15 +131,29 @@ function closeBTCPopup() {
 
 function copyBTC() {
   const btcInput = document.getElementById("btcAddress");
-  btcInput.select();
-  btcInput.setSelectionRange(0, 99999);
-  document.execCommand("copy");
-  alert("Address copied!");
-}  
+  const text = btcInput.value;
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        alert("Address copied!");
+      })
+      .catch(err => {
+        alert("Copy failed. Please copy manually.");
+      });
+  } else {
+    // Fallback for older browsers
+    btcInput.select();
+    btcInput.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    alert("Address copied!");
+  }
+}
 </script>
 
 </body>
 </html>
+
 
 
 
