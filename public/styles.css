@@ -136,18 +136,7 @@ body {
   background: #1d4ed8;
 }
 
-/* ===== MOBILE ===== */
-@media (max-width: 600px) {
-  .welcome {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .card-row {
-    flex-direction: column;
-  }
-
- /* ===== LOGIN & REGISTER FIX ===== */
+/* ===== LOGIN & REGISTER FIX ===== */
 
 .auth {
   min-height: 100vh;
@@ -213,7 +202,7 @@ body {
   text-decoration: underline;
 }
 
-  /* ===== POPUP STYLING ===== */
+/* ===== POPUP STYLING ===== */
 
 .popup {
   display: none;
@@ -275,3 +264,14 @@ body {
   flex: 1;
 }
 
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .welcome {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card-row {
+    flex-direction: column;
+  }
+}
